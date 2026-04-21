@@ -12,19 +12,19 @@ This portfolio showcases my 60-day Data Analytics Internship experience at ApexP
 ## 📂 Project Repositories
 
 1. **Data Immersion & Wrangling**  
-   🔗 [View Project]([PASTE_LINK_HERE](https://github.com/MallikarjunaTec/data-immersion-wrangling.git))  
+   🔗 [View Project](https://github.com/MallikarjunaTec/data-immersion-wrangling.git) 
    Cleaned and prepared raw datasets by handling missing values, duplicates, and inconsistencies.
 
 2. **Exploratory Data Analysis (EDA) & Business Intelligence**  
-   🔗 [View Project]([PASTE_LINK_HERE](https://github.com/MallikarjunaTec/-EDA--Business-Intelligence.git))  
+   🔗 [View Project](https://github.com/MallikarjunaTec/-EDA--Business-Intelligence.git)  
    Performed statistical analysis and created visualizations to uncover patterns and trends.
 
 3. **Deep-Dive Analysis & Interactive Dashboard**  
-   🔗 [View Project]([PASTE_LINK_HERE](https://github.com/MallikarjunaTec/Deep-Dive-Analysis-Interactive-Dashboarding-Task-3.git))  
+   🔗 [View Project](https://github.com/MallikarjunaTec/Deep-Dive-Analysis-Interactive-Dashboarding-Task-3.git)
    Built interactive dashboards using Power BI/Tableau and defined key business KPIs.
 
 4. **Data Storytelling & Statistical Validation**  
-   🔗 [View Project]([PASTE_LINK_HERE](https://github.com/MallikarjunaTec/Data-Storytelling-Statistical-Validation.git))  
+   🔗 [View Project](https://github.com/MallikarjunaTec/Data-Storytelling-Statistical-Validation.git)
    Developed business insights and validated them using hypothesis testing techniques.
 
 ---
