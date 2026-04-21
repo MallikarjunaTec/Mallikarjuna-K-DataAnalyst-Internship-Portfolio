@@ -60,4 +60,6 @@ This repository consolidates a complete data analytics lifecycle: **data ingesti
 ## Install all dependencies:
  pip install -r requirements.txt
 
+ 📦 **Dependencies:** [requirements.txt](./requirements.txt)
+
 
