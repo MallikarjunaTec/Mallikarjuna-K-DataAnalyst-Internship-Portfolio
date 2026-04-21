@@ -1,0 +1,45 @@
+# Data Manipulation & Numerical Computing
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Data Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+kaleido>=0.2.1  # Static image export for Plotly
+
+# Machine Learning & Statistical Modeling
+scikit-learn>=1.3.0
+statsmodels>=0.14.0
+imbalanced-learn>=0.11.0
+
+# Database & SQL Integration
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0  # PostgreSQL
+pyodbc>=4.0.0           # SQL Server / MS Access / Excel ODBC
+# sqlite3               # Built-in Python module (no installation needed)
+
+# Web Scraping & API Data Collection
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Notebook & Interactive Environment
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0
+ipywidgets>=8.0.0
+
+# File I/O & Data Formats
+openpyxl>=3.1.0         # Excel read/write
+pyarrow>=12.0.0         # Fast Parquet/CSV handling
+fastparquet>=2023.0.0
+
+# Environment & Config Management
+python-dotenv>=1.0.0
+
+# Code Quality & Reproducibility
+black>=23.0.0
+flake8>=6.0.0
+pytest>=7.4.0
