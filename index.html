@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mallikarjuna K | Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero .company {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-phase {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-deliverables {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-deliverables li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-deliverables li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .project-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .project-link:hover {
+            opacity: 0.9;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg-light);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list i {
+            color: var(--secondary-color);
+        }
+
+        /* Deliverables Section */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .deliverable-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .deliverable-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .deliverable-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .deliverable-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .deliverable-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-title::after {
+            background: var(--white);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 1.5rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Megha R</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#deliverables">Deliverables</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Mallikarjuna K</h1>
+            <p class="subtitle">Data Analyst</p>
+            <p class="company">
+                <i class="fas fa-briefcase"></i> 
+                Internship at ApexPlanet Software Pvt. Ltd.<br>
+                <small>March 2026 - April 2026</small>
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> View Projects
+                </a>
+                <a href="https://github.com/MallikarjunaTec/Mallikarjuna-DataAnalyst-Internship-Portfolio" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title fade-in">About This Project</h2>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p>
+                    This portfolio showcases a comprehensive <strong>end-to-end data analytics project</strong> 
+                    completed during my internship at ApexPlanet Software Pvt. Ltd. The project demonstrates 
+                    mastery of the complete data analytics lifecycle.
+                </p>
+                <p>
+                    From raw data ingestion to executive-ready dashboards, I've applied industry-standard 
+                    tools and methodologies to solve real-world business problems and deliver actionable insights.
+                </p>
+                <p>
+                    <strong>Business Impact:</strong> Analyzed 15,000+ records, built predictive models with 87% 
+                    accuracy, and created interactive dashboards that empowered data-driven decision making.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Project Phases</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Records Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Weeks Duration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title fade-in">Project Phases</h2>
+        <div class="projects-grid">
+            
+            <!-- Part 1 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon"></div>
+                    <h3 class="project-title">Part 1</h3>
+                    <span class="project-phase">Data Collection & Cleaning</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Built robust data pipelines for ingestion, quality assessment, and automated cleaning.
+                    </p>
+                    <ul class="project-deliverables">
+                        <li>Raw data ingestion</li>
+                        <li>Data quality assessment</li>
+                        <li>Automated cleaning pipelines</li>
+                        <li>Missing value handling</li>
+                    </ul>
+                    <a href="https://github.com/MallikarjunaTec/data-immersion-wrangling.git" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Part 2 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🔍</div>
+                    <h3 class="project-title">Part 2</h3>
+                    <span class="project-phase">EDA & Feature Engineering</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Conducted exploratory data analysis and created meaningful features for modeling.
+                    </p>
+                    <ul class="project-deliverables">
+                        <li>Statistical summaries</li>
+                        <li>Correlation analysis</li>
+                        <li>Data visualizations</li>
+                        <li>Feature creation</li>
+                    </ul>
+                    <a href="https://github.com/MallikarjunaTec/-EDA--Business-Intelligence.git" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Part 3 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🤖</div>
+                    <h3 class="project-title">Part 3</h3>
+                    <span class="project-phase">Modeling & Validation</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Developed predictive models and validated results using statistical methods.
+                    </p>
+                    <ul class="project-deliverables">
+                        <li>Predictive modeling</li>
+                        <li>Hypothesis testing</li>
+                        <li>Model evaluation</li>
+                        <li>Performance metrics</li>
+                    </ul>
+                    <a href="https://github.com/MallikarjunaTec/Deep-Dive-Analysis-Interactive-Dashboarding-Task-3.git" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Part 4 -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">📊</div>
+                    <h3 class="project-title">Part 4</h3>
+                    <span class="project-phase">Dashboard & Reporting</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Created interactive dashboards and executive presentations for stakeholders.
+                    </p>
+                    <ul class="project-deliverables">
+                        <li>Interactive dashboard</li>
+                        <li>Executive presentation</li>
+                        <li>Actionable insights</li>
+                        <li>Video walkthrough</li>
+                    </ul>
+                    <a href="https://github.com/MallikarjunaTec/Data-Storytelling-Statistical-Validation.git" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="section-title fade-in">Technical Skills</h2>
+        <div class="skills-container">
+            
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-python"></i> Python (pandas, numpy, scikit-learn)</li>
+                    <li><i class="fas fa-database"></i> SQL (CTEs, window functions)</li>
+                    <li><i class="fas fa-chart-line"></i> R (if applicable)</li>
+                    <li><i class="fas fa-file-code"></i> Jupyter Notebooks</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-chart-area"></i> Matplotlib & Seaborn</li>
+                    <li><i class="fas fa-chart-pie"></i> Plotly</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Tableau / PowerBI</li>
+                    <li><i class="fas fa-paint-brush"></i> Data Storytelling</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-random"></i> Regression Models</li>
+                    <li><i class="fas fa-project-diagram"></i> Classification</li>
+                    <li><i class="fas fa-vial"></i> Statistical Testing</li>
+                    <li><i class="fas fa-tasks"></i> Model Validation</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-tools"></i> Tools & Methods</h3>
+                <ul class="skill-list">
+                    <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                    <li><i class="fas fa-project-diagram"></i> CRISP-DM</li>
+                    <li><i class="fas fa-check-circle"></i> Data Validation</li>
+                    <li><i class="fas fa-file-alt"></i> Documentation</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="deliverables">
+        <h2 class="section-title fade-in">Final Deliverables</h2>
+        <div class="deliverables-grid">
+            
+            <div class="deliverable-card fade-in">
+                <div class="deliverable-icon">📄</div>
+                <h3>Presentation Deck</h3>
+                <p>Executive summary slides with key findings, methodology, and recommendations</p>
+                <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FMallikarjunaTec%2FData-Storytelling-Statistical-Validation%2Frefs%2Fheads%2Fmain%2FTask4_ab_test_presentation.pptx&wdOrigin=BROWSELINK" 
+                   class="btn btn-primary" target="_blank">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+            <div class="deliverable-card fade-in">
+                <div class="deliverable-icon">🎥</div>
+                <h3>Video Walkthrough</h3>
+                <p>3-5 minute portfolio presentation on LinkedIn showcasing project highlights</p>
+                <a href="https://linkedin.com/in/yourprofile" 
+                   class="btn btn-primary" target="_blank">
+                    <i class="fab fa-linkedin"></i> Watch Video
+                </a>
+            </div>
+
+            <div class="deliverable-card fade-in">
+                <div class="deliverable-icon">📊</div>
+                <h3>Interactive Dashboard</h3>
+                <p>Live Tableau/PowerBI dashboard with dynamic filters and KPIs</p>
+                <a href="https://public.tableau.com/app/profile/yourprofile" 
+                   class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Dashboard
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title fade-in">Let's Connect</h2>
+        <p class="fade-in" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+            I'm actively seeking opportunities in data analytics and business intelligence. 
+            Let's discuss how I can help drive data-driven decisions for your organization!
+        </p>
+        <div class="contact-links fade-in">
+            <a href="https://www.linkedin.com/in/mallikarjuna-k-b901692b0/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BXd5tDPfzTj2JGBoX9CmYLA%3D%3D" class="contact-link" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/MallikarjunaTec" class="contact-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:mallikamanu2003k@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 Mallikarjuna K | Data Analyst Internship Portfolio<br>
+            Built with <i class="fas fa-heart" style="color: #f093fb;"></i> during internship at 
+            <a href="https://apexplanet.com" target="_blank">ApexPlanet Software Pvt. Ltd.</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.background = 'white';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.padding = '1rem';
+            navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        });
+    </script>
+
+</body>
+</html>
