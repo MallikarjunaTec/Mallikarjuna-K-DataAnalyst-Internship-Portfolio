@@ -11,8 +11,8 @@ This repository consolidates a complete data analytics lifecycle: **data ingesti
 
 | Phase | Focus Area | Key Deliverables | Repository Link |
 |-------|------------|------------------|-----------------|
-| **Part 1** | Data Collection & Cleaning | • Raw data ingestion<br>• Data quality assessment<br>• Cleaning pipelines | [🔗 Link to Repo 1]((https://github.com/MallikarjunaTec/data-immersion-wrangling.git) |
-| **Part 2** | EDA & Feature Engineering | • Statistical summaries<br>• Visualizations<br>• Feature creation | [🔗 Link to Repo 2]([your-github-link](https://github.com/MallikarjunaTec/-EDA--Business-Intelligence.git)) |
+| **Part 1** | Data Collection & Cleaning | • Raw data ingestion<br>• Data quality assessment<br>• Cleaning pipelines | [🔗 Link to Repo 2]([your-github-link]
+| **Part 2** | EDA & Feature Engineering | • Statistical summaries<br>• Visualizations<br>• Feature creation | [🔗 Link to Repo 2]((https://github.com/MallikarjunaTec/-EDA--Business-Intelligence.git)) |
 | **Part 3** | Modeling & Validation | • Predictive models<br>• Statistical tests<br>• Model evaluation | [🔗 Link to Repo 3]([your-github-link](https://github.com/MallikarjunaTec/Deep-Dive-Analysis-Interactive-Dashboarding-Task-3.git)) |
 | **Part 4** | Dashboard & Reporting | • Interactive dashboards<br>• Executive presentations<br>• Actionable insights | [🔗 Link to Repo 4]([your-github-link](https://github.com/MallikarjunaTec/Data-Storytelling-Statistical-Validation.git)) |
 
