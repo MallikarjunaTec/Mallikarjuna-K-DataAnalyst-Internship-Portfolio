@@ -22,7 +22,7 @@ This repository consolidates a complete data analytics lifecycle: **data ingesti
 ## 📦 Final Deliverables
 
 ### 📄 Documentation
-- **[Download Presentation Deck ](Task4_ab_test_presentation.pptx)**
+- **[Download Presentation Deck ](PK)**
 - **[View Project Documentation](link-to-docs)**
 
 ---
